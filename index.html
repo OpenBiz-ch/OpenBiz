@@ -5,21 +5,818 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OpenBiz – All-in-One Business Software für Schweizer KMU</title>
 
-  <!-- Google Search Console Verifizierung -->
+  <!-- Google Search Console -->
   <meta name="google-site-verification" content="niWeD5w5bazd9f4glysIlCRI13MJGhnt5oHdSHCxh3M">
 
   <!-- SEO -->
-  <meta name="description" content="OpenBiz – Die All-in-One Business Software für Schweizer KMU. ERP, CRM, Buchhaltung, KI-Automatisierung auf einer Plattform.">
+  <meta name="description" content="OpenBiz – Die All-in-One Business Software für Schweizer KMU. ERP, CRM, Buchhaltung, KI-Automatisierung auf einer Plattform. Swiss Made.">
+  <meta name="keywords" content="OpenBiz, Business Software Schweiz, ERP KMU Schweiz, CRM Schweiz, KI Automatisierung, Buchhaltung Software Schweiz, clixmedia">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://openbiz-ch.github.io/OpenBiz/">
+
+  <!-- OG -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://openbiz-ch.github.io/OpenBiz/">
+  <meta property="og:title" content="OpenBiz – All-in-One Business Software für Schweizer KMU">
+  <meta property="og:description" content="ERP, CRM, Buchhaltung und KI-Automatisierung auf einer Plattform. Swiss Made.">
+  <meta property="og:locale" content="de_CH">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://openbiz.ch/web/image/website/1/favicon">
   <link rel="shortcut icon" href="https://openbiz.ch/web/image/website/1/favicon">
   <link rel="apple-touch-icon" href="https://openbiz.ch/web/image/website/1/favicon">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #404040;
+      --bg2: #363636;
+      --bg3: #2e2e2e;
+      --border: rgba(255,255,255,0.1);
+      --accent: #849125;
+      --accent2: #9aaa2d;
+      --text: #e8eaf0;
+      --muted: #b0b4be;
+      --white: #ffffff;
+      --card: rgba(255,255,255,0.05);
+      --card-hover: rgba(255,255,255,0.09);
+      --radius: 16px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10,12,16,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      text-decoration: none;
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .nav-logo span {
+      background: var(--accent);
+      color: white;
+      width: 30px; height: 30px;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 700;
+    }
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.9rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--accent) !important;
+      color: white !important;
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      transition: background 0.2s, transform 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--accent2) !important; transform: translateY(-1px); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(232,98,42,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(232,98,42,0.1);
+      border: 1px solid rgba(232,98,42,0.3);
+      color: var(--accent2);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem; font-weight: 500;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero h1 {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent2);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+    .hero-buttons {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(232,98,42,0.35); }
+    .btn-secondary {
+      background: var(--card);
+      color: var(--text);
+      padding: 0.85rem 2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: var(--card-hover); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex; gap: 3rem; justify-content: center; flex-wrap: wrap;
+      margin-top: 4rem;
+      animation: fadeUp 0.6s ease 0.4s both;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 800;
+      font-size: 2rem; color: var(--white);
+    }
+    .stat-label { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
+
+    /* SECTION */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--white); line-height: 1.2; margin-bottom: 1rem;
+    }
+    .section-sub { font-size: 1.05rem; color: var(--muted); max-width: 560px; }
+
+    /* FEATURES GRID */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    .feature-card:hover {
+      background: var(--card-hover);
+      border-color: rgba(232,98,42,0.2);
+      transform: translateY(-4px);
+    }
+    .feature-icon {
+      width: 48px; height: 48px;
+      background: rgba(232,98,42,0.1);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 1.2rem;
+    }
+    .feature-card h3 { font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 0.5rem; }
+    .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
+
+    /* KI DOMAINS */
+    .ki-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem; margin-top: 3rem;
+    }
+    .ki-card {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      position: relative; overflow: hidden;
+    }
+    .ki-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .ki-card:hover { background: var(--bg3); border-color: rgba(232,98,42,0.25); transform: translateY(-4px); }
+    .ki-card:hover::before { opacity: 1; }
+    .ki-card-top { display: flex; align-items: center; gap: 0.75rem; }
+    .ki-card-icon {
+      width: 40px; height: 40px;
+      background: rgba(232,98,42,0.1);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .ki-card-domain { font-size: 0.8rem; color: var(--accent); font-weight: 600; }
+    .ki-card h3 { font-size: 1rem; font-weight: 600; color: var(--white); }
+    .ki-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.5; }
+    .ki-card-arrow {
+      margin-top: auto;
+      color: var(--accent);
+      font-size: 0.85rem; font-weight: 600;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+
+    /* COMPARE TABLE */
+    .compare-table {
+      width: 100%; border-collapse: collapse;
+      margin-top: 3rem;
+    }
+    .compare-table th {
+      padding: 1rem 1.5rem; text-align: left;
+      background: var(--bg2); color: var(--muted);
+      font-size: 0.85rem; font-weight: 600;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-table th:nth-child(2) { color: var(--accent); }
+    .compare-table td {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .compare-table tr:hover td { background: var(--card); }
+    .check { color: #4ade80; font-weight: 600; }
+    .cross { color: #f87171; }
+
+    /* CTA SECTION */
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(232,98,42,0.08) 0%, rgba(232,98,42,0.03) 100%);
+      border: 1px solid rgba(232,98,42,0.15);
+      border-radius: 24px;
+      padding: 4rem 2rem;
+      margin: 2rem 0;
+    }
+    .cta-section h2 {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--white); margin-bottom: 1rem;
+    }
+    .cta-section p { color: var(--muted); max-width: 500px; margin: 0 auto 2rem; }
+
+    /* LINKS TABLE */
+    .links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem; margin-top: 2rem;
+    }
+    .link-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: flex; flex-direction: column; gap: 0.3rem;
+    }
+    .link-item:hover { background: var(--card-hover); border-color: rgba(232,98,42,0.2); }
+    .link-item-label { font-size: 0.75rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .link-item-url { font-size: 0.9rem; color: var(--white); font-weight: 500; }
+    .link-item-desc { font-size: 0.8rem; color: var(--muted); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem; color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .footer-links {
+      display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .footer-links a {
+      color: var(--muted); text-decoration: none;
+      font-size: 0.9rem; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--white); }
+    .footer-badges {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .badge {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.75rem; color: var(--muted);
+    }
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hero-stats { gap: 2rem; }
+      .compare-table { display: block; overflow-x: auto; }
+    }
+  </style>
 </head>
 <body>
-  <h1>OpenBiz – All-in-One Business Software für Schweizer KMU</h1>
-  <p>Besuche <a href="https://openbiz.ch">openbiz.ch</a> für mehr Informationen.</p>
+
+<!-- NAV -->
+<nav>
+  <a href="https://openbiz.ch" class="nav-logo">
+    <img src="https://openbiz.ch/web/image/website/1/logo/openbiz.ch" alt="OpenBiz" style="height:36px;width:auto;object-fit:contain;">
+  </a>
+  <div class="nav-links">
+    <a href="#funktionen">Funktionen</a>
+    <a href="#ki-loesungen">KI-Lösungen</a>
+    <a href="#vergleich">Vergleich</a>
+    <a href="#alle-links">Links</a>
+    <a href="https://clixmedia.ch/appointment" class="nav-cta">Demo buchen →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-badge">🇨🇭 Swiss Made · DSGVO-konform · 18+ Jahre Erfahrung</div>
+    <h1>Alles für Dein Business.<br><em>Auf einer Plattform.</em></h1>
+    <p>OpenBiz vereint ERP, CRM, Buchhaltung, E-Commerce und KI-Automatisierung in einer einzigen, integrierten Lösung – massgeschneidert für Schweizer KMU.</p>
+    <div class="hero-buttons">
+      <a href="https://clixmedia.ch/appointment" class="btn-primary">Kostenlose Demo → </a>
+      <a href="https://openbiz.ch" class="btn-secondary">Zur Website</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">300+</div>
+        <div class="stat-label">Business Apps</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">18+</div>
+        <div class="stat-label">Jahre Erfahrung</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">DSGVO-konform</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Ansprechpartner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="funktionen">
+  <div class="container">
+    <div class="section-label">Funktionen</div>
+    <h2 class="section-title">Eine Plattform für alles</h2>
+    <p class="section-sub">Schluss mit dem Tool-Chaos. OpenBiz wächst mit deinem Unternehmen – vom Starter bis zur Enterprise-Lösung.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🏢</div>
+        <h3>ERP & Unternehmensführung</h3>
+        <p>Vollständiges ERP-System für Schweizer KMU. 300+ Business Apps modular erweiterbar – skalierbar von Starter bis Enterprise.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">💼</div>
+        <h3>CRM & Verkauf</h3>
+        <p>Integriertes CRM mit digitalen Angeboten und elektronischer Signatur (eSign). Höhere Abschlussquoten durch digitale Verkaufsprozesse.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🧾</div>
+        <h3>Rechnungsstellung</h3>
+        <p>Swiss QR-Rechnung integriert. MWST-konforme Buchführung, automatischer Bankabgleich und Web-Rechnungen im Kundenportal.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Website & E-Commerce</h3>
+        <p>KI-gestützter Website-Editor. KI generiert Texte und Inhalte automatisch – abgestimmt auf dein Unternehmen und deine Zielgruppe.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>KI-Automatisierung</h3>
+        <p>KI als Kernbestandteil der Plattform. Automatisiere Prozesse, erstelle Inhalte und optimiere deinen Workflow mit modernster KI.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Datenschutz & Sicherheit</h3>
+        <p>100% nDSG & DSGVO-konform. Schweizer Serverstandort, Open Source Basis – keine Abhängigkeit von externen Anbietern.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KI LÖSUNGEN -->
+<section id="ki-loesungen" style="background: var(--bg2);">
+  <div class="container">
+    <div class="section-label">KI-Ökosystem</div>
+    <h2 class="section-title">KI-Lösungen für<br>Schweizer Unternehmen</h2>
+    <p class="section-sub">OpenBiz ist Teil eines umfassenden KI-Ökosystems. Alle spezialisierten KI-Lösungen von clixmedia GmbH auf einen Blick.</p>
+    <div class="ki-grid">
+      <a href="https://dein-ki-agent.ch" class="ki-card" target="_blank">
+        <div class="ki-card-top">
+          <div class="ki-card-icon">🤖</div>
+          <div class="ki-card-domain">dein-ki-agent.ch</div>
+        </div>
+        <h3>KI-Agenten für KMU</h3>
+        <p>Massgeschneiderte KI-Agenten für Schweizer KMU. Automatisiere wiederkehrende Aufgaben und Geschäftsprozesse mit intelligenten KI-Agenten.</p>
+        <div class="ki-card-arrow">Mehr erfahren →</div>
+      </a>
+      <a href="https://ki-rechnung.ch" class="ki-card" target="_blank">
+        <div class="ki-card-top">
+          <div class="ki-card-icon">🧾</div>
+          <div class="ki-card-domain">ki-rechnung.ch</div>
+        </div>
+        <h3>KI-Rechnungsverarbeitung</h3>
+        <p>Eingangsrechnungen automatisch erfassen, prüfen und verarbeiten – ohne manuellen Aufwand. OCR + KI für Schweizer KMU.</p>
+        <div class="ki-card-arrow">Mehr erfahren →</div>
+      </a>
+      <a href="https://ki-rechnungsprogramm.ch" class="ki-card" target="_blank">
+        <div class="ki-card-top">
+          <div class="ki-card-icon">📋</div>
+          <div class="ki-card-domain">ki-rechnungsprogramm.ch</div>
+        </div>
+        <h3>KI-Rechnungsprogramm</h3>
+        <p>Rechnungen automatisch erstellen, versenden und verwalten. Swiss QR-Rechnung inklusive, MWST-konform.</p>
+        <div class="ki-card-arrow">Mehr erfahren →</div>
+      </a>
+      <a href="https://kiberatung-schweiz.ch" class="ki-card" target="_blank">
+        <div class="ki-card-top">
+          <div class="ki-card-icon">💡</div>
+          <div class="ki-card-domain">kiberatung-schweiz.ch</div>
+        </div>
+        <h3>KI-Beratung Schweiz</h3>
+        <p>Professionelle KI-Beratung für Schweizer KMU. KI-Strategie, Implementierung und Schulungen von A bis Z.</p>
+        <div class="ki-card-arrow">Mehr erfahren →</div>
+      </a>
+      <a href="https://ki-automatisierung-schweiz.ch" class="ki-card" target="_blank">
+        <div class="ki-card-top">
+          <div class="ki-card-icon">⚙️</div>
+          <div class="ki-card-domain">ki-automatisierung-schweiz.ch</div>
+        </div>
+        <h3>KI-Automatisierung</h3>
+        <p>Geschäftsprozesse mit KI automatisieren. Workflow-Automatisierung (n8n, Make, Zapier) – spart bis zu 80% der manuellen Arbeit.</p>
+        <div class="ki-card-arrow">Mehr erfahren →</div>
+      </a>
+      <a href="https://ki-accounting.ch" class="ki-card" target="_blank">
+        <div class="ki-card-top">
+          <div class="ki-card-icon">📊</div>
+          <div class="ki-card-domain">ki-accounting.ch</div>
+        </div>
+        <h3>KI-Accounting</h3>
+        <p>KI-gestützte Buchhaltungslösung. Belege automatisch erfassen, verbuchen und auswerten – MWST-konform und revisionssicher.</p>
+        <div class="ki-card-arrow">Mehr erfahren →</div>
+      </a>
+      <a href="https://ki-software-schweiz.ch" class="ki-card" target="_blank">
+        <div class="ki-card-top">
+          <div class="ki-card-icon">💻</div>
+          <div class="ki-card-domain">ki-software-schweiz.ch</div>
+        </div>
+        <h3>KI-Software Schweiz</h3>
+        <p>Unabhängige KI-Software Beratung und Implementierung. Die richtige KI-Software für dein Unternehmen finden und einsetzen.</p>
+        <div class="ki-card-arrow">Mehr erfahren →</div>
+      </a>
+      <a href="https://openbiz.ch" class="ki-card" target="_blank">
+        <div class="ki-card-top">
+          <div class="ki-card-icon">🏢</div>
+          <div class="ki-card-domain">openbiz.ch</div>
+        </div>
+        <h3>OpenBiz Business Software</h3>
+        <p>Die All-in-One Business Software für Schweizer KMU. ERP, CRM, Buchhaltung und KI auf einer Plattform.</p>
+        <div class="ki-card-arrow">Zur Plattform →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VERGLEICH -->
+<section id="vergleich">
+  <div class="container">
+    <div class="section-label">Vergleich</div>
+    <h2 class="section-title">OpenBiz vs. typische KMU-Lösung</h2>
+    <p class="section-sub">Ein System statt Tool-Chaos – OpenBiz integriert alles was du brauchst.</p>
+    <div style="overflow-x:auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>✅ OpenBiz</th>
+            <th>❌ Typische KMU-Lösung</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Web-Angebot & Verkauf</td>
+            <td><span class="check">✓ Voll integriert</span></td>
+            <td><span class="cross">✕ Meist PDF per E-Mail</span></td>
+          </tr>
+          <tr>
+            <td>Digitale Signatur (eSign)</td>
+            <td><span class="check">✓ Integriert</span></td>
+            <td><span class="cross">✕ Externes Tool nötig</span></td>
+          </tr>
+          <tr>
+            <td>Kundenportal</td>
+            <td><span class="check">✓ Vollständig integriert</span></td>
+            <td><span class="cross">✕ Meist nicht vorhanden</span></td>
+          </tr>
+          <tr>
+            <td>Swiss QR-Rechnung</td>
+            <td><span class="check">✓ Nativ integriert</span></td>
+            <td><span class="cross">✕ Zusatzkosten / Add-on</span></td>
+          </tr>
+          <tr>
+            <td>KI-Unterstützung</td>
+            <td><span class="check">✓ Strategisch integriert</span></td>
+            <td><span class="cross">✕ Meist fehlend</span></td>
+          </tr>
+          <tr>
+            <td>Skalierung</td>
+            <td><span class="check">✓ 300+ Apps bis Enterprise</span></td>
+            <td><span class="cross">✕ Funktionslimitiert</span></td>
+          </tr>
+          <tr>
+            <td>Datenschutz (nDSG & DSGVO)</td>
+            <td><span class="check">✓ 100% konform</span></td>
+            <td><span class="cross">✕ Teilweise erfüllt</span></td>
+          </tr>
+          <tr>
+            <td>Schweizer Serverstandort</td>
+            <td><span class="check">✓ Garantiert</span></td>
+            <td><span class="cross">✕ Oft unklar</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section>
+  <div class="container">
+    <div class="cta-section">
+      <h2>Bereit für die Digitalisierung?</h2>
+      <p>Starte mit einer kostenlosen Demo – wir zeigen dir, wie OpenBiz dein Unternehmen auf das nächste Level bringt.</p>
+      <div class="hero-buttons">
+        <a href="https://clixmedia.ch/appointment" class="btn-primary">Kostenlose Demo buchen →</a>
+        <a href="https://clixmedia.ch/kontakt" class="btn-secondary">Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALLE LINKS -->
+<section id="alle-links" style="background: var(--bg2);">
+  <div class="container">
+    <div class="section-label">Alle Ressourcen</div>
+    <h2 class="section-title">Alle Links auf einen Blick</h2>
+    <div class="links-grid">
+      <a href="https://openbiz.ch" class="link-item" target="_blank">
+        <div class="link-item-label">Business Software</div>
+        <div class="link-item-url">openbiz.ch</div>
+        <div class="link-item-desc">All-in-One Plattform für KMU</div>
+      </a>
+      <a href="https://clixmedia.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Agentur</div>
+        <div class="link-item-url">clixmedia.ch</div>
+        <div class="link-item-desc">Digitalisierung & KI Schweiz</div>
+      </a>
+      <a href="https://dein-ki-agent.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Agent</div>
+        <div class="link-item-url">dein-ki-agent.ch</div>
+        <div class="link-item-desc">KI-Agenten für KMU</div>
+      </a>
+      <a href="https://ki-rechnung.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Rechnung</div>
+        <div class="link-item-url">ki-rechnung.ch</div>
+        <div class="link-item-desc">Rechnungsverarbeitung mit KI</div>
+      </a>
+      <a href="https://ki-rechnungsprogramm.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Rechnungsprogramm</div>
+        <div class="link-item-url">ki-rechnungsprogramm.ch</div>
+        <div class="link-item-desc">Rechnungen automatisch erstellen</div>
+      </a>
+      <a href="https://kiberatung-schweiz.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Beratung</div>
+        <div class="link-item-url">kiberatung-schweiz.ch</div>
+        <div class="link-item-desc">KI-Strategie & Implementierung</div>
+      </a>
+      <a href="https://ki-automatisierung-schweiz.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Automatisierung</div>
+        <div class="link-item-url">ki-automatisierung-schweiz.ch</div>
+        <div class="link-item-desc">Prozessautomatisierung mit KI</div>
+      </a>
+      <a href="https://ki-accounting.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Accounting</div>
+        <div class="link-item-url">ki-accounting.ch</div>
+        <div class="link-item-desc">KI-Buchhaltung Schweiz</div>
+      </a>
+      <a href="https://ki-software-schweiz.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Software</div>
+        <div class="link-item-url">ki-software-schweiz.ch</div>
+        <div class="link-item-desc">KI-Software Beratung</div>
+      </a>
+      <a href="https://clixmedia.ch/appointment" class="link-item" target="_blank">
+        <div class="link-item-label">Demo</div>
+        <div class="link-item-url">Demo buchen</div>
+        <div class="link-item-desc">Kostenlose Erstberatung</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- BACKLINKS -->
+<section style="background: var(--bg3);">
+  <div class="container">
+    <div class="section-label">Ressourcen & Links</div>
+    <h2 class="section-title">Weiterführende Links</h2>
+    <p class="section-sub" style="margin-bottom:2rem;">Alle wichtigen Seiten und Ressourcen von clixmedia GmbH und OpenBiz auf einen Blick.</p>
+
+    <h3 style="color:var(--accent);font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">🏢 Business Software</h3>
+    <div class="links-grid" style="margin-bottom:2.5rem;">
+      <a href="https://openbiz.ch" class="link-item" target="_blank">
+        <div class="link-item-label">All-in-One Plattform</div>
+        <div class="link-item-url">openbiz.ch</div>
+        <div class="link-item-desc">Business Software für Schweizer KMU</div>
+      </a>
+      <a href="https://openbiz.ch/die-software" class="link-item" target="_blank">
+        <div class="link-item-label">Software</div>
+        <div class="link-item-url">openbiz.ch/die-software</div>
+        <div class="link-item-desc">OpenBiz Software im Detail</div>
+      </a>
+      <a href="https://openbiz.ch/funktionsliste" class="link-item" target="_blank">
+        <div class="link-item-label">Funktionen</div>
+        <div class="link-item-url">openbiz.ch/funktionsliste</div>
+        <div class="link-item-desc">Alle 300+ Funktionen & Apps</div>
+      </a>
+      <a href="https://openbiz.ch/starter" class="link-item" target="_blank">
+        <div class="link-item-label">Starter Paket</div>
+        <div class="link-item-url">openbiz.ch/starter</div>
+        <div class="link-item-desc">Schnell loslegen mit OpenBiz</div>
+      </a>
+      <a href="https://openbiz.ch/faq" class="link-item" target="_blank">
+        <div class="link-item-label">FAQ</div>
+        <div class="link-item-url">openbiz.ch/faq</div>
+        <div class="link-item-desc">Häufig gestellte Fragen</div>
+      </a>
+      <a href="https://openbiz.ch/ueber-openbiz" class="link-item" target="_blank">
+        <div class="link-item-label">Über OpenBiz</div>
+        <div class="link-item-url">openbiz.ch/ueber-openbiz</div>
+        <div class="link-item-desc">Unser Team und unsere Mission</div>
+      </a>
+    </div>
+
+    <h3 style="color:var(--accent);font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">🤝 clixmedia GmbH</h3>
+    <div class="links-grid" style="margin-bottom:2.5rem;">
+      <a href="https://clixmedia.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Agentur Schweiz</div>
+        <div class="link-item-url">clixmedia.ch</div>
+        <div class="link-item-desc">Digitalisierung & KI für KMU</div>
+      </a>
+      <a href="https://clixmedia.ch/kontakt" class="link-item" target="_blank">
+        <div class="link-item-label">Kontakt</div>
+        <div class="link-item-url">clixmedia.ch/kontakt</div>
+        <div class="link-item-desc">Jetzt Kontakt aufnehmen</div>
+      </a>
+      <a href="https://clixmedia.ch/appointment" class="link-item" target="_blank">
+        <div class="link-item-label">Demo buchen</div>
+        <div class="link-item-url">clixmedia.ch/appointment</div>
+        <div class="link-item-desc">Kostenlose Erstberatung</div>
+      </a>
+      <a href="https://clixmedia.ch/blog/news-2" class="link-item" target="_blank">
+        <div class="link-item-label">Blog</div>
+        <div class="link-item-url">clixmedia.ch/blog</div>
+        <div class="link-item-desc">News & Insights zu KI</div>
+      </a>
+      <a href="https://clixmedia.ch/impressum-agb" class="link-item" target="_blank">
+        <div class="link-item-label">Impressum & AGB</div>
+        <div class="link-item-url">clixmedia.ch/impressum-agb</div>
+        <div class="link-item-desc">Rechtliche Informationen</div>
+      </a>
+    </div>
+
+    <h3 style="color:var(--accent);font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">🤖 KI-Lösungen Schweiz</h3>
+    <div class="links-grid" style="margin-bottom:0;">
+      <a href="https://dein-ki-agent.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Agent</div>
+        <div class="link-item-url">dein-ki-agent.ch</div>
+        <div class="link-item-desc">KI-Agenten für Schweizer KMU</div>
+      </a>
+      <a href="https://ki-rechnung.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Rechnung</div>
+        <div class="link-item-url">ki-rechnung.ch</div>
+        <div class="link-item-desc">Rechnungsverarbeitung mit KI</div>
+      </a>
+      <a href="https://ki-rechnungsprogramm.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Rechnungsprogramm</div>
+        <div class="link-item-url">ki-rechnungsprogramm.ch</div>
+        <div class="link-item-desc">Rechnungen automatisch erstellen</div>
+      </a>
+      <a href="https://kiberatung-schweiz.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Beratung</div>
+        <div class="link-item-url">kiberatung-schweiz.ch</div>
+        <div class="link-item-desc">KI-Strategie & Implementierung</div>
+      </a>
+      <a href="https://ki-automatisierung-schweiz.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Automatisierung</div>
+        <div class="link-item-url">ki-automatisierung-schweiz.ch</div>
+        <div class="link-item-desc">Geschäftsprozesse automatisieren</div>
+      </a>
+      <a href="https://ki-accounting.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Accounting</div>
+        <div class="link-item-url">ki-accounting.ch</div>
+        <div class="link-item-desc">KI-Buchhaltung Schweiz</div>
+      </a>
+      <a href="https://ki-software-schweiz.ch" class="link-item" target="_blank">
+        <div class="link-item-label">KI-Software</div>
+        <div class="link-item-url">ki-software-schweiz.ch</div>
+        <div class="link-item-desc">KI-Software Beratung Schweiz</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">OpenBiz</div>
+  <div class="footer-links">
+    <a href="https://openbiz.ch">openbiz.ch</a>
+    <a href="https://clixmedia.ch">clixmedia.ch</a>
+    <a href="https://clixmedia.ch/kontakt">Kontakt</a>
+    <a href="https://clixmedia.ch/appointment">Demo buchen</a>
+    <a href="https://clixmedia.ch/impressum-agb">Impressum</a>
+  </div>
+  <div class="footer-badges">
+    <div class="badge">🇨🇭 Swiss Made</div>
+    <div class="badge">✓ DSGVO</div>
+    <div class="badge">✓ nDSG</div>
+    <div class="badge">🔒 Datenschutz</div>
+    <div class="badge">18+ Jahre Erfahrung</div>
+  </div>
+  <div class="footer-copy">© clixmedia GmbH – Alle Rechte vorbehalten · <a href="https://openbiz.ch" style="color: var(--accent); text-decoration:none;">openbiz.ch</a></div>
+</footer>
+
 </body>
 </html>
